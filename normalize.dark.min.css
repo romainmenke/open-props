@@ -13,19 +13,6 @@
   --surface-4: var(--gray-6);
 
   --scrollthumb-color: var(--gray-6);
-  /* --brand: your-brand-color-here; */
-  
-  scrollbar-color: var(--scrollthumb-color) transparent;
-  accent-color: var(--brand, var(--link));
-  caret-color: var(--brand, var(--link));
-  color: var(--text-2);
-  background-color: var(--surface-1);
-  block-size: 100%;
-  font-family: var(--font-sans);
-  line-height: var(--font-lineheight-3);
-  -webkit-text-size-adjust: none; /* https://kilianvalkhof.com/2022/css-html/your-css-reset-needs-text-size-adjust-probably/ */
-  --shadow-strength: 10%;
-  --shadow-color: 220 40% 2%
 }
 :where(html) :where(dialog) {
     background-color: var(--surface-2);
@@ -33,13 +20,13 @@
 :where(html) :where(button) {
     --_highlight: var(--_highlight-dark);
     --_bg: var(--_bg-dark);
-    --_ink-shadow: var(--_ink-shadow-dark)
+    --_ink-shadow: var(--_ink-shadow-dark);
   }
 :where(html) :where(button):where([type="reset"]) {
       --_text: var(--red-2);
       --_border: var(--surface-3);
     }
-:where(html) :where(button,input:is([type="button"],[type="submit"],[type="reset"]))[disabled] {
+:where(html) [disabled]:where(button,input:is([type="button"],[type="submit"],[type="reset"])) {
     --_text: var(--gray-5);
   }
 :where(html) :where(textarea, select, input:not([type="button"],[type="submit"],[type="reset"])) {
@@ -51,11 +38,20 @@
   :where(html) :where([disabled]) {
     --_bg: var(--surface-1);
   }
+:where(html) {
+  /* --brand: your-brand-color-here; */
+  
+  scrollbar-color: var(--scrollthumb-color) transparent;
+  accent-color: var(--brand, var(--link));
+  caret-color: var(--brand, var(--link));
+  color: var(--text-2);
+  background-color: var(--surface-1);
+}
 :where(h1, h2, h3, h4, h5, h6, dt) { 
   color: var(--text-1);
 }
 :where(a[href]) {
-  color: var(--brand, var(--link))
+  color: var(--brand, var(--link));
 }
 :where(a[href]):visited {
     color: var(--link-visited);
@@ -73,9 +69,15 @@
   background-origin: border-box;
   background-repeat: no-repeat;
 }
+:where(html) {
+  block-size: 100%;
+  font-family: var(--font-sans);
+  line-height: var(--font-lineheight-3);
+  -webkit-text-size-adjust: none; /* https://kilianvalkhof.com/2022/css-html/your-css-reset-needs-text-size-adjust-probably/ */
+}
 @media (prefers-reduced-motion: no-preference) {
 :where(html) {
-    scroll-behavior: smooth
+    scroll-behavior: smooth;
 }
   }
 @media (prefers-reduced-motion: no-preference) {
@@ -114,11 +116,11 @@
   font-size: var(--font-size-2);
 }
 :where(a, u, ins, abbr) {
-  text-underline-offset: 1px
+  text-underline-offset: 1px;
 }
 @supports (-moz-appearance: none) {
 :where(a, u, ins, abbr) {
-    text-underline-offset: 2px
+    text-underline-offset: 2px;
 }
   }
 :where(a[href], area, button, input, label[for], select, summary, textarea, [tabindex]:not([tabindex*="-"])) {
@@ -130,10 +132,10 @@
   padding-inline: var(--size-1);
   margin-inline: calc(var(--size-1) * -1);
   padding-block: var(--size-1);
-  margin-block: calc(var(--size-1) * -1)
+  margin-block: calc(var(--size-1) * -1);
 }
 :where(a):where([href]) {
-    text-decoration-color: var(--indigo-2)
+    text-decoration-color: var(--indigo-2);
   }
 :where(a):where([href]):where(:visited) {
       text-decoration-color: var(--purple-2);
@@ -158,8 +160,6 @@
 ::placeholder {
   color: var(--gray-7);
   opacity: .75;
-  color: var(--gray-6);
-  opacity: .75;
 }
 :where(input:not([type="range"]), textarea) {
   padding-inline: var(--size-2);
@@ -172,7 +172,6 @@
 :where(textarea, select, input:not([type="button"],[type="submit"],[type="reset"])) {
   background-color: var(--surface-2);
   border-radius: var(--radius-2);
-  background-color: var(--gray-10);
 }
 :where(textarea) { resize: block }
 :where(input[type="checkbox"], input[type="radio"]) {
@@ -224,7 +223,7 @@
 :where(figure) {
   display: grid;
   gap: var(--size-2);
-  place-items: center
+  place-items: center;
 }
 :where(figure) > :where(figcaption) {
     font-size: var(--font-size-1);
@@ -279,14 +278,10 @@
   color: inherit;
   border-radius: var(--radius-3);
   box-shadow: var(--shadow-6);
-  background-color: var(--surface-2)
 }
 :where(dialog)::backdrop {
     backdrop-filter: blur(25px);
   }
-:where(html[\:has\(dialog\[open\]\)]) {
-  overflow: hidden;
-}
 :where(html:has(dialog[open])) {
   overflow: hidden;
 }
@@ -297,4 +292,18 @@
 }
 :where(sup) {
   font-size: .5em;
+}
+:where(textarea, select, input:not([type="button"],[type="submit"],[type="reset"])) {
+  background-color: var(--gray-10);
+}
+:where(dialog) {
+  background-color: var(--surface-2);
+}
+:where(html) {
+  --shadow-strength: 10%;
+  --shadow-color: 220 40% 2%;
+}
+::placeholder {
+  color: var(--gray-6);
+  opacity: .75;
 }

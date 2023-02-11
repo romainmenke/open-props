@@ -64,7 +64,7 @@
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
   
-  transition: border-color .5s var(--ease-3) 3s
+  transition: border-color .5s var(--ease-3) 3s;
 }
 @media (prefers-color-scheme: dark) {
 :where(button,input:is([type="button"],[type="submit"],[type="reset"])),
@@ -72,7 +72,7 @@
 :where(input[type="file"])::file-selector-button {
     --_highlight: var(--_highlight-dark);
     --_bg: var(--_bg-dark);
-    --_ink-shadow: var(--_ink-shadow-dark)
+    --_ink-shadow: var(--_ink-shadow-dark);
 }
   }
 @media (prefers-reduced-motion: no-preference) {
@@ -82,32 +82,28 @@
     transition:
       border-color .5s var(--ease-3) 3s,
       box-shadow 145ms var(--ease-4),
-      outline-offset 145ms var(--ease-4)
+      outline-offset 145ms var(--ease-4);
 }
   }
-:where(button,input:is([type="button"],[type="submit"],[type="reset"])) {
-  /* disabled */
-
-  /* pressing */
-
-  /* icons */
-}
-:where(button,input:is([type="button"],[type="submit"],[type="reset"]))[disabled] {
+/* disabled */
+[disabled]:where(button,input:is([type="button"],[type="submit"],[type="reset"])) {
     --_bg: none;
     --_text: var(--gray-6);
     cursor: not-allowed;
-    box-shadow: var(--shadow-1)
+    box-shadow: var(--shadow-1);
   }
 @media (prefers-color-scheme: dark) {
-:where(button,input:is([type="button"],[type="submit"],[type="reset"]))[disabled] {
-      --_text: var(--gray-5)
+[disabled]:where(button,input:is([type="button"],[type="submit"],[type="reset"])) {
+      --_text: var(--gray-5);
   }
     }
+/* pressing */
 :where(button,input:is([type="button"],[type="submit"],[type="reset"])):where(:not(:active):hover) {
     --_highlight-size: var(--size-2);
     transition-delay: 0s;
     transition-duration: .25s;
   }
+/* icons */
 :where(button,input:is([type="button"],[type="submit"],[type="reset"])) > :where(svg) {
     flex-shrink: 0;
     filter: drop-shadow(var(--_ink-shadow));
@@ -125,7 +121,7 @@
 /* red reset */
 :where([type="reset"]) {
   --_text: var(--red-6);
-  --_border: var(--red-3)
+  --_border: var(--red-3);
 }
 :where([type="reset"]):focus-visible {
     outline-color: var(--red-6);
@@ -133,7 +129,7 @@
 @media (prefers-color-scheme: dark) {
 :where([type="reset"]) {
     --_text: var(--red-2);
-    --_border: var(--surface-3)
+    --_border: var(--surface-3);
 }
   }
 /* submit, form > button, reset matching hover border color */

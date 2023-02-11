@@ -13,23 +13,12 @@
   --surface-4: var(--gray-4);
 
   --scrollthumb-color: var(--gray-7);
-  /* --brand: your-brand-color-here; */
-  
-  scrollbar-color: var(--scrollthumb-color) transparent;
-  accent-color: var(--brand, var(--link));
-  caret-color: var(--brand, var(--link));
-  color: var(--text-2);
-  background-color: var(--surface-1);
-  block-size: 100%;
-  font-family: var(--font-sans);
-  line-height: var(--font-lineheight-3);
-  -webkit-text-size-adjust: none /* https://kilianvalkhof.com/2022/css-html/your-css-reset-needs-text-size-adjust-probably/ */
 }
 @media (dynamic-range: high) {
     @supports (color: color(display-p3 0 0 0)) {
 :host {
       --link: color(display-p3 .1 .4 1);
-      --link-visited: color(display-p3 .6 .2 1)
+      --link-visited: color(display-p3 .6 .2 1);
 }
     }
   }
@@ -39,13 +28,13 @@
 :host :where(button) {
     --_highlight: var(--_highlight-light);
     --_bg: var(--_bg-light);
-    --_ink-shadow: var(--_ink-shadow-light)
+    --_ink-shadow: var(--_ink-shadow-light);
   }
 :host :where(button) :where([type="reset"]) {
       --_text: var(--red-6);
       --_border: var(--red-3);
     }
-:host :where(button,input:is([type="button"],[type="submit"],[type="reset"]))[disabled] {
+:host [disabled]:where(button,input:is([type="button"],[type="submit"],[type="reset"])) {
     --_text: var(--gray-6);
   }
 :host :where(textarea, select, input:not([type="button"],[type="submit"],[type="reset"])) {
@@ -67,15 +56,22 @@
     --surface-4: var(--gray-6);
 
     --scrollthumb-color: var(--gray-6);
-    --shadow-strength: 10%;
-    --shadow-color: 220 40% 2%;
   }
+}
+:host {
+  /* --brand: your-brand-color-here; */
+  
+  scrollbar-color: var(--scrollthumb-color) transparent;
+  accent-color: var(--brand, var(--link));
+  caret-color: var(--brand, var(--link));
+  color: var(--text-2);
+  background-color: var(--surface-1);
 }
 :where(h1, h2, h3, h4, h5, h6, dt) { 
   color: var(--text-1);
 }
 :where(a[href]) {
-  color: var(--brand, var(--link))
+  color: var(--brand, var(--link));
 }
 :where(a[href]):visited {
     color: var(--link-visited);
@@ -93,9 +89,15 @@
   background-origin: border-box;
   background-repeat: no-repeat;
 }
+:host {
+  block-size: 100%;
+  font-family: var(--font-sans);
+  line-height: var(--font-lineheight-3);
+  -webkit-text-size-adjust: none; /* https://kilianvalkhof.com/2022/css-html/your-css-reset-needs-text-size-adjust-probably/ */
+}
 @media (prefers-reduced-motion: no-preference) {
 :host {
-    scroll-behavior: smooth
+    scroll-behavior: smooth;
 }
   }
 @media (prefers-reduced-motion: no-preference) {
@@ -134,11 +136,11 @@
   font-size: var(--font-size-2);
 }
 :where(a, u, ins, abbr) {
-  text-underline-offset: 1px
+  text-underline-offset: 1px;
 }
 @supports (-moz-appearance: none) {
 :where(a, u, ins, abbr) {
-    text-underline-offset: 2px
+    text-underline-offset: 2px;
 }
   }
 :where(a[href], area, button, input, label[for], select, summary, textarea, [tabindex]:not([tabindex*="-"])) {
@@ -150,10 +152,10 @@
   padding-inline: var(--size-1);
   margin-inline: calc(var(--size-1) * -1);
   padding-block: var(--size-1);
-  margin-block: calc(var(--size-1) * -1)
+  margin-block: calc(var(--size-1) * -1);
 }
 :where(a):where([href]) {
-    text-decoration-color: var(--indigo-2)
+    text-decoration-color: var(--indigo-2);
   }
 :where(a):where([href]):where(:visited) {
       text-decoration-color: var(--purple-2);
@@ -241,7 +243,7 @@
 :where(figure) {
   display: grid;
   gap: var(--size-2);
-  place-items: center
+  place-items: center;
 }
 :where(figure) > :where(figcaption) {
     font-size: var(--font-size-1);
@@ -295,14 +297,11 @@
   background-color: var(--surface-1);
   color: inherit;
   border-radius: var(--radius-3);
-  box-shadow: var(--shadow-6)
+  box-shadow: var(--shadow-6);
 }
 :where(dialog)::backdrop {
     backdrop-filter: blur(25px);
   }
-:where(html[\:has\(dialog\[open\]\)]) {
-  overflow: hidden;
-}
 :where(html:has(dialog[open])) {
   overflow: hidden;
 }
@@ -321,6 +320,11 @@
 
   :where(dialog) {
     background-color: var(--surface-2);
+  }
+
+  :host {
+    --shadow-strength: 10%;
+    --shadow-color: 220 40% 2%;
   }
 
   ::placeholder {
