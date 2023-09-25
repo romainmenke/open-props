@@ -1,7 +1,7 @@
-const postcssPresetEnv  = require('postcss-preset-env')
-const postcssImport     = require('postcss-import')
-const cssnano           = require('cssnano')
-const combineSelectors  = require('./build/postcss-combine-selectors.cjs')
+const postcssPresetEnv = require('postcss-preset-env')
+const postcssImport = require('postcss-import')
+const cssnano = require('cssnano')
+const combineSelectors = require('./build/postcss-combine-selectors.cjs')
 
 const lib = process.env.npm_lifecycle_event
 
@@ -15,17 +15,20 @@ module.exports = {
       stage: 0,
       autoprefixer: false,
       features: {
-        'logical-properties-and-values': false, 
-        'prefers-color-scheme-query': false, 
-        'gap-properties': false,
-        'custom-properties': false,
-        'place-properties': false,
-        'not-pseudo-class': false,
-        'focus-visible-pseudo-class': false,
-        'focus-within-pseudo-class': false,
+        'cascade-layers': false,
+        'clamp': false,
         'color-functional-notation': false,
-        'custom-media-queries': {preserve:inlineMediaQueries},
+        'custom-media-queries': { preserve: inlineMediaQueries },
+        'custom-properties': false,
         'double-position-gradients': false,
+        'gap-properties': false,
+        'is-pseudo-class': false,
+        'logical-properties-and-values': false,
+        'logical-resize': false,
+        'logical-viewport-units': false,
+        'not-pseudo-class': false,
+        'place-properties': false,
+        'prefers-color-scheme-query': false,
       }
     }),
     combineSelectors(),
