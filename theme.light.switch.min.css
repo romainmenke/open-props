@@ -18,7 +18,7 @@
 
   --scrollthumb-color: var(--gray-7);
   --shadow-color: 220 3% 15%;
-  --shadow-strength: 1%
+  --shadow-strength: 1%;
 }
 @media (dynamic-range: high) {
     @supports (color: color(display-p3 0 0 0)) {
@@ -28,7 +28,7 @@
   .light-theme
 ) {
       --link: color(display-p3 .1 .4 1);
-      --link-visited: color(display-p3 .6 .2 1)
+      --link-visited: color(display-p3 .6 .2 1);
 }
     }
   }
@@ -46,7 +46,7 @@
 ) :where(button,.btn) {
     --_highlight: var(--_highlight-light);
     --_bg: var(--_bg-light);
-    --_ink-shadow: var(--_ink-shadow-light)
+    --_ink-shadow: var(--_ink-shadow-light);
   }
 :where(
   [data-theme="light"],
@@ -60,7 +60,7 @@
   [data-theme="light"],
   .light,
   .light-theme
-) :where(button,.btn,input:is([type="button"],[type="submit"],[type="reset"]))[disabled] {
+) [disabled]:where(button,.btn,input:is([type="button"],[type="submit"],[type="reset"])) {
     --_text: var(--gray-6);
   }
 :where(

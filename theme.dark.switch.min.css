@@ -18,7 +18,7 @@
 
   --scrollthumb-color: var(--gray-6);
   --shadow-strength: 10%;
-  --shadow-color: 220 40% 2%
+  --shadow-color: 220 40% 2%;
 }
 :where(
   [data-theme="dark"],
@@ -34,7 +34,7 @@
 ) :where(button,.btn) {
     --_highlight: var(--_highlight-dark);
     --_bg: var(--_bg-dark);
-    --_ink-shadow: var(--_ink-shadow-dark)
+    --_ink-shadow: var(--_ink-shadow-dark);
   }
 :where(
   [data-theme="dark"],
@@ -48,7 +48,7 @@
   [data-theme="dark"],
   .dark,
   .dark-theme
-) :where(button,.btn,input:is([type="button"],[type="submit"],[type="reset"]))[disabled] {
+) [disabled]:where(button,.btn,input:is([type="button"],[type="submit"],[type="reset"])) {
     --_text: var(--gray-5);
   }
 :where(

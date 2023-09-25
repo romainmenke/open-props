@@ -23,13 +23,13 @@
   block-size: 100%;
   font-family: var(--font-sans);
   line-height: var(--font-lineheight-3);
-  -webkit-text-size-adjust: none /* https://kilianvalkhof.com/2022/css-html/your-css-reset-needs-text-size-adjust-probably/ */
+  -webkit-text-size-adjust: none; /* https://kilianvalkhof.com/2022/css-html/your-css-reset-needs-text-size-adjust-probably/ */
 }
 @media (dynamic-range: high) {
     @supports (color: color(display-p3 0 0 0)) {
 :where(html) {
       --link: color(display-p3 .1 .4 1);
-      --link-visited: color(display-p3 .6 .2 1)
+      --link-visited: color(display-p3 .6 .2 1);
 }
     }
   }
@@ -39,13 +39,13 @@
 :where(html) :where(button,.btn) {
     --_highlight: var(--_highlight-light);
     --_bg: var(--_bg-light);
-    --_ink-shadow: var(--_ink-shadow-light)
+    --_ink-shadow: var(--_ink-shadow-light);
   }
 :where(html) :where(button,.btn) :where([type="reset"]) {
       --_text: var(--red-6);
       --_border: var(--red-3);
     }
-:where(html) :where(button,.btn,input:is([type="button"],[type="submit"],[type="reset"]))[disabled] {
+:where(html) [disabled]:where(button,.btn,input:is([type="button"],[type="submit"],[type="reset"])) {
     --_text: var(--gray-6);
   }
 :where(html) :where(textarea, select, input:not([type="button"],[type="submit"],[type="reset"])) {
@@ -75,7 +75,7 @@
   color: var(--text-1);
 }
 :where(a[href]) {
-  color: var(--brand, var(--link))
+  color: var(--brand, var(--link));
 }
 :where(a[href]):visited {
     color: var(--link-visited);
@@ -95,7 +95,7 @@
 }
 @media (prefers-reduced-motion: no-preference) {
 :where(html) {
-    scroll-behavior: smooth
+    scroll-behavior: smooth;
 }
   }
 @media (prefers-reduced-motion: no-preference) {
@@ -135,11 +135,11 @@
   font-size: var(--font-size-2);
 }
 :where(a, u, ins, abbr) {
-  text-underline-offset: 1px
+  text-underline-offset: 1px;
 }
 @supports (-moz-appearance: none) {
 :where(a, u, ins, abbr) {
-    text-underline-offset: 2px
+    text-underline-offset: 2px;
 }
   }
 :where(a[href], area, button, input:not([type="text"], [type="email"], [type="number"], [type="password"], [type=""], [type="tel"], [type="url"]), label[for], select, summary, [tabindex]:not([tabindex*="-"])) {
@@ -153,10 +153,10 @@
   padding-inline: var(--size-1);
   margin-inline: calc(var(--size-1) * -1);
   padding-block: var(--size-1);
-  margin-block: calc(var(--size-1) * -1)
+  margin-block: calc(var(--size-1) * -1);
 }
 :where(a):where([href]) {
-    text-decoration-color: var(--indigo-2)
+    text-decoration-color: var(--indigo-2);
   }
 :where(a):where([href]):where(:visited) {
       text-decoration-color: var(--purple-2);
@@ -246,7 +246,7 @@
 :where(figure) {
   display: grid;
   gap: var(--size-2);
-  place-items: center
+  place-items: center;
 }
 :where(figure) > :where(figcaption) {
     font-size: var(--font-size-1);
@@ -300,14 +300,11 @@
   background-color: var(--surface-1);
   color: inherit;
   border-radius: var(--radius-3);
-  box-shadow: var(--shadow-6)
+  box-shadow: var(--shadow-6);
 }
 :where(dialog)::backdrop {
     backdrop-filter: blur(25px);
   }
-:where(html[\:has\(dialog\[open\]\)]) {
-  overflow: hidden;
-}
 :where(html:has(dialog[open])) {
   overflow: hidden;
 }
@@ -327,14 +324,8 @@
 
   --nice-inner-radius: calc(var(--radius-3) - 2px);
 }
-:where(table[\:not-has\(tfoot\)] tr:last-child td:first-child) {
-  border-bottom-left-radius: var(--nice-inner-radius);
-}
 :where(table:not(:has(tfoot)) tr:last-child td:first-child) {
   border-bottom-left-radius: var(--nice-inner-radius);
-}
-:where(table[\:not-has\(tfoot\)] tr:last-child td:last-child) {
-  border-bottom-right-radius: var(--nice-inner-radius);
 }
 :where(table:not(:has(tfoot)) tr:last-child td:last-child) {
   border-bottom-right-radius: var(--nice-inner-radius);
@@ -375,12 +366,12 @@
 }
 :where(table tr:hover td),
 :where(tbody tr:nth-child(even):hover td) {
-  background-color: var(--gray-10)
+  background-color: var(--gray-10);
 }
 @media (prefers-color-scheme: light) {
 :where(table tr:hover td),
 :where(tbody tr:nth-child(even):hover td) {
-    background-color: white
+    background-color: white;
 }
   }
 :where(table > caption) {
