@@ -29,8 +29,8 @@ module.exports = {
       }
     }),
     combineSelectors(),
-    cssnano({
-      preset: 'default'
-    }),
+    // cssnano({
+    //   preset: 'default'
+    // }),
   ]
 }
